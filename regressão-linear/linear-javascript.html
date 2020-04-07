@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<hml>
+   <head>
+      
+      <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+      
+      <title>Linear Regression</title>
+
+   </head>
+   <body>
+      <script language="javascript">
+         
+         //Salva os cliques do mouse aqui.
+         var data = [];
+
+         var m = 0;
+         var b = 0;
+         
+         function setup(){
+            createCanvas(400, 400);
+         }
+
+         function mousePressed() {
+            var x = map(mouseX, 0, width, 0, 1);
+            var y = map(mouseY, 0, height, 1, 0);
+            //Cria ponto no gráfico (data) onde o mouse clica
+            var point = createVector(x, y);
+            data.push(point);
+         }
+
+         function draw() {
+         background(51);
+
+            for(var i = 0; i < data.length; i++){
+               var x = map(data[i].x, 0, 1, 0, width);
+               var y = map(data[i].y, 0, 1, height, 0);
+
+               fill(255);
+               stoke(255);
+               ellipse(x, y, 8, 8);
+            }
+         }
+         
+      </script>
+   </body>
+</hml>
